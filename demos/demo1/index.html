@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react-demo: hello world</title>
+</head>
+<body>
+
+<script src="../lib/react.js"></script>
+<script src="../lib/JSXTransformer.js"></script>
+<script type="text/jsx">
+    /*
+     * well this is my first demo.
+     * let's make a 'hello world' just as what we have done before.
+     * React is all about component.
+     * our first component show below and it render a <p> as the first child of <body> !
+     */
+    var Hello = React.createClass({
+        render: function(){
+            return (
+                <p>hello world</p>
+            );
+        }
+    });
+
+    React.render(<Hello />, document.body);
+</script>
+</body>
+</html>
