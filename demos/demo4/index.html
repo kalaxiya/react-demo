@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react-demo: mutiple components</title>
+</head>
+<body>
+
+<script src="../lib/react.js"></script>
+<script src="../lib/JSXTransformer.js"></script>
+<script type="text/jsx">
+    /*
+     * in React, components are composable.
+     * it means we can use components similar to DOM tree.
+     */
+    var Demo = React.createClass({
+        render: function(){
+            return (
+                <div>
+                    <SubComponentA name="linzerui" />
+                    <SubComponentB name="super linzerui" />
+                </div>
+            );
+        }
+    });
+
+    var SubComponentA = React.createClass({
+        render: function(){
+            return <p>I am the first sub component. call me {this.props.name}.</p>;
+        }
+    });
+    var SubComponentB = React.createClass({
+        render: function(){
+            return <p>I am the second sub component. call me {this.props.name}.</p>;
+        }
+    });
+
+    React.render(<Demo />, document.body);
+</script>
+</body>
+</html>

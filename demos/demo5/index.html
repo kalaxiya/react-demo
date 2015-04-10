@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react-demo: touch the raw DOM</title>
+</head>
+<body>
+
+<script src="../lib/react.js"></script>
+<script src="../lib/JSXTransformer.js"></script>
+<script type="text/jsx">
+    /*
+     * usually we don't talk to the DOM directly since React do it for us.
+     * but sometimes we may also need to get the raw DOM.
+     * React support 'React.findDOMNode()' for us to call.
+     * show it below. note the 'ref', it is necessary.
+     */
+    var Demo = React.createClass({
+        getInitialState: function(){
+            return {
+                value: ''
+            }
+        },
+
+        handleClick: function(){
+            this.setState({
+                value: React.findDOMNode( this.refs.input ).value.trim()
+            });
+        },
+
+        render: function(){
+            return (
+                <div>
+                    <p>click the button, then the value of the &lt;input&gt; shows.</p>
+                    <input type="text" ref="input"/><button onClick={this.handleClick}>click me</button>
+                    <p>you input: {this.state.value}</p>
+                </div>
+            );
+        }
+    });
+
+
+    React.render(<Demo />, document.body);
+</script>
+</body>
+</html>
