@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react-demo: dynamic UI</title>
+</head>
+<body>
+
+<script src="../lib/react.js"></script>
+<script src="../lib/JSXTransformer.js"></script>
+<script type="text/jsx">
+    /*
+     * I use a event handler to make the UI dynamic.
+     * in React we pass the handler as a camelCased prop similar to how we had do it in normal HTML.
+     * React use event delegation under the hood.
+     */
+    var Demo = React.createClass({
+        getInitialState: function(){
+            return {
+                count: 0
+            }
+        },
+
+        handleClick: function(){
+            this.setState({
+                count: this.state.count + 1
+            });
+        },
+
+        render: function(){
+            var text = this.state.count ? 'you have clicked ' + this.state.count + ' times.' : 'try to click the button!';
+
+            return (
+                <div>
+                    <p>{text}</p>
+                    <button onClick={this.handleClick}>click me</button>
+                </div>
+            );
+        }
+    });
+
+    React.render(<Demo />, document.body);
+</script>
+</body>
+</html>
