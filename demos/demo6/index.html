@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>react-demo: inline style</title>
+</head>
+<body>
+
+<script src="../lib/react.js"></script>
+<script src="../lib/JSXTransformer.js"></script>
+<script type="text/jsx">
+    /*
+     * in React, inline style is no specified as a string.
+     * instead they are specified with an object whose key is the camelCased version of the style name,
+     * and whose value is the style's value.
+     */
+    var Demo = React.createClass({
+        render: function(){
+            var divStyle = {
+                color: 'red',
+                WebkitTransition: 'all 2s ease',
+                msTransition: 'all 2s ease'
+            };
+
+            return (
+                <div style={divStyle}>hello world</div>
+            );
+        }
+    });
+
+
+    React.render(<Demo />, document.body);
+</script>
+</body>
+</html>
