@@ -1,4 +1,5 @@
 # react-demo
 
-demos of react.js
-good good study, day day up.
+demos of react.
+
+good good study and day day up.
